@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.softeyt.easywinpackages.view.dashboard.DashboardController"
+      VBox.vgrow="ALWAYS">
+
+    <!-- Header -->
+    <VBox styleClass="screen-header">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="2">
+                <Label fx:id="lblTitle" styleClass="screen-title"/>
+                <Label fx:id="lblSubtitle" styleClass="screen-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnRefresh" styleClass="btn-secondary" onAction="#onRefresh"/>
+        </HBox>
+    </VBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-background: transparent;">
+        <VBox spacing="20" styleClass="section-padding">
+
+            <!-- Stats Row: Updates + Total Installed -->
+            <HBox spacing="16" fillHeight="true">
+
+                <!-- Updates Card -->
+                <VBox styleClass="card,stat-card,clickable-stat-card" HBox.hgrow="ALWAYS" spacing="10"
+                      onMouseClicked="#onUpdatesCardClicked">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="lblUpdatesIcon" styleClass="metric-icon"/>
+                        <Label fx:id="lblUpdatesTitle" styleClass="card-title"/>
+                    </HBox>
+                    <StackPane minHeight="52">
+                        <ProgressIndicator fx:id="spinUpdates" prefWidth="30" prefHeight="30"
+                                           StackPane.alignment="CENTER_LEFT"/>
+                        <Label fx:id="lblUpdatesCount" styleClass="card-value,updates-value"
+                               StackPane.alignment="CENTER_LEFT"/>
+                        <HBox fx:id="boxUpdatesCurrent" alignment="CENTER_LEFT" spacing="8"
+                              visible="false" managed="false" StackPane.alignment="CENTER_LEFT">
+                            <Label fx:id="lblUpdatesCurrentIcon" styleClass="updates-current-icon"/>
+                            <Label fx:id="lblUpdatesCurrentText" styleClass="updates-current-text"/>
+                        </HBox>
+                    </StackPane>
+                    <Label fx:id="lblUpdatesSub" styleClass="card-sub"/>
+                </VBox>
+
+                <!-- Total Installed Card -->
+                <VBox styleClass="card,stat-card,clickable-stat-card" HBox.hgrow="ALWAYS" spacing="10"
+                      onMouseClicked="#onTotalCardClicked">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="lblTotalIcon" styleClass="metric-icon"/>
+                        <Label fx:id="lblTotalTitle" styleClass="card-title"/>
+                    </HBox>
+                    <StackPane minHeight="52">
+                        <ProgressIndicator fx:id="spinTotal" prefWidth="30" prefHeight="30"
+                                           StackPane.alignment="CENTER_LEFT"/>
+                        <Label fx:id="lblTotalCount" styleClass="card-value,total-value"
+                               StackPane.alignment="CENTER_LEFT"/>
+                    </StackPane>
+                    <Label fx:id="lblTotalSub" styleClass="card-sub"/>
+                </VBox>
+
+                <!-- Available Sources Card -->
+                <VBox styleClass="card,stat-card,clickable-stat-card" HBox.hgrow="ALWAYS" spacing="10"
+                      onMouseClicked="#onSourcesCardClicked">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="lblSourcesIcon" styleClass="metric-icon"/>
+                        <Label fx:id="lblSourcesTitle" styleClass="card-title"/>
+                    </HBox>
+                    <StackPane minHeight="52">
+                        <Label fx:id="lblSourcesCount" styleClass="card-value,sources-value"
+                               StackPane.alignment="CENTER_LEFT"/>
+                    </StackPane>
+                    <Label fx:id="lblSourcesSub" styleClass="card-sub"/>
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </ScrollPane>
+</VBox>
+

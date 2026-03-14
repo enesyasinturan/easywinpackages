@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.softeyt.easywinpackages.view.settings.SettingsController"
+      VBox.vgrow="ALWAYS">
+
+    <VBox styleClass="screen-header">
+        <Label fx:id="lblTitle" styleClass="screen-title"/>
+    </VBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-background: transparent;">
+        <VBox styleClass="section-padding" spacing="20" maxWidth="600">
+
+            <!-- Theme -->
+            <VBox styleClass="card" spacing="14">
+                <Label fx:id="lblThemeTitle" styleClass="card-section-title"/>
+                <ComboBox fx:id="cmbTheme" prefWidth="240"/>
+            </VBox>
+
+            <!-- Language -->
+            <VBox styleClass="card" spacing="14">
+                <Label fx:id="lblLangTitle" styleClass="card-section-title"/>
+                <ComboBox fx:id="cmbLanguage" prefWidth="240"/>
+            </VBox>
+
+            <!-- Logs -->
+            <VBox styleClass="card" spacing="14">
+                <Label fx:id="lblLogsTitle" styleClass="card-section-title"/>
+
+                <VBox spacing="8">
+                    <Label fx:id="lblLogFileTitle" styleClass="muted-label"/>
+                    <TextField fx:id="txtLogFile" editable="false"/>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label fx:id="lblLogFolderTitle" styleClass="muted-label"/>
+                    <TextField fx:id="txtLogFolder" editable="false"/>
+                </VBox>
+
+                <HBox spacing="10">
+                    <Button fx:id="btnOpenLogFolder" styleClass="btn-secondary" onAction="#onOpenLogFolder"/>
+                    <Button fx:id="btnOpenLogFile" styleClass="btn-secondary" onAction="#onOpenLogFile"/>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="lblSaved" styleClass="badge-success" visible="false" managed="false"/>
+        </VBox>
+    </ScrollPane>
+</VBox>

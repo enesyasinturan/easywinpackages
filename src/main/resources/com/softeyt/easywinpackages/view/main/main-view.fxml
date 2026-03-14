@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.softeyt.easywinpackages.view.main.MainController"
+      styleClass="app-root"
+      fx:id="rootHBox">
+
+    <!-- Sidebar -->
+    <VBox styleClass="sidebar" fx:id="sidebar">
+        <!-- Logo area -->
+        <VBox styleClass="sidebar-logo-area" alignment="CENTER">
+            <ImageView fitWidth="266" fitHeight="86" preserveRatio="false" smooth="true" pickOnBounds="true">
+                <image>
+                    <Image url="@/com/softeyt/easywinpackages/icons/easywinpkg-logo-5.png"/>
+                </image>
+            </ImageView>
+        </VBox>
+
+        <!-- Nav buttons -->
+        <VBox styleClass="sidebar-nav-area" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnDashboard"  styleClass="nav-button" maxWidth="Infinity" onAction="#onDashboard"/>
+            <Separator styleClass="sidebar-nav-separator"/>
+
+            <Button fx:id="btnInstall" styleClass="nav-button" maxWidth="Infinity" onAction="#onInstall"/>
+            <Button fx:id="btnUpdates"    styleClass="nav-button" maxWidth="Infinity" onAction="#onUpdates"/>
+            <Button fx:id="btnUninstall"  styleClass="nav-button" maxWidth="Infinity" onAction="#onUninstall"/>
+
+            <Separator styleClass="sidebar-nav-separator"/>
+
+            <Button fx:id="btnBundle"     styleClass="nav-button" maxWidth="Infinity" onAction="#onBundle"/>
+            <Button fx:id="btnSources"    styleClass="nav-button" maxWidth="Infinity" onAction="#onSources"/>
+            <Region VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+        <!-- Bottom: version -->
+        <VBox styleClass="sidebar-bottom">
+            <Button fx:id="btnSettings" styleClass="nav-button" maxWidth="Infinity" onAction="#onSettings"/>
+            <Label text="v1.0.0" styleClass="sidebar-version-label"/>
+        </VBox>
+    </VBox>
+
+    <!-- Content area -->
+    <StackPane fx:id="contentArea" styleClass="content-area" HBox.hgrow="ALWAYS"/>
+
+</HBox>

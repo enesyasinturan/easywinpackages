@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.softeyt.easywinpackages.view.search.SearchController"
+      VBox.vgrow="ALWAYS">
+
+    <!-- Header -->
+    <VBox styleClass="screen-header">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="3">
+                <Label fx:id="lblTitle" styleClass="screen-title"/>
+                <Label fx:id="lblSubtitle" styleClass="screen-subtitle"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- Search toolbar -->
+    <HBox styleClass="section-padding" spacing="10" alignment="CENTER_LEFT">
+        <ComboBox fx:id="cmbSource" prefWidth="155"/>
+        <TextField fx:id="txtSearch" HBox.hgrow="ALWAYS" promptText=""/>
+        <Button fx:id="btnSearch" styleClass="btn-primary" onAction="#onSearch"/>
+    </HBox>
+
+    <!-- Status & progress -->
+    <VBox style="-fx-padding: 0 28 10 28;" spacing="6">
+        <ProgressBar fx:id="progressBar" maxWidth="Infinity" visible="false" managed="false"/>
+        <Label fx:id="lblStatus" styleClass="muted-label"/>
+    </VBox>
+
+    <!-- Results table -->
+    <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 0 28 24 28;" spacing="0">
+        <TableView fx:id="tblResults" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colName"    prefWidth="200"/>
+                <TableColumn fx:id="colId"      prefWidth="200"/>
+                <TableColumn fx:id="colVersion" prefWidth="90"/>
+                <TableColumn fx:id="colSource"  prefWidth="110"/>
+                <TableColumn fx:id="colAction"  prefWidth="132" minWidth="120"/>
+                <TableColumn fx:id="colBundle"  prefWidth="168" minWidth="154"/>
+            </columns>
+            <placeholder>
+                <Label fx:id="lblNoResults" styleClass="muted-label"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+</VBox>
+

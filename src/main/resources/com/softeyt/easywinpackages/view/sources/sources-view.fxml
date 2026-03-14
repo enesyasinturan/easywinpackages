@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.softeyt.easywinpackages.view.sources.SourcesController"
+      VBox.vgrow="ALWAYS">
+
+    <VBox styleClass="screen-header">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="3" HBox.hgrow="ALWAYS">
+                <Label fx:id="lblTitle"    styleClass="screen-title"/>
+                <Label fx:id="lblSubtitle" styleClass="screen-subtitle"/>
+            </VBox>
+            <Button fx:id="btnRefresh" styleClass="btn-secondary" onAction="#onRefresh"/>
+        </HBox>
+    </VBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-background: transparent;">
+        <VBox styleClass="section-padding" spacing="16">
+
+            <!-- Winget -->
+            <VBox styleClass="card" spacing="12">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="W" styleClass="source-brand-icon"/>
+                    <Label fx:id="lblWingetName" styleClass="card-section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <ProgressIndicator fx:id="spinWinget" prefWidth="22" prefHeight="22" visible="false" managed="false"/>
+                    <Label fx:id="lblWingetStatus"/>
+                    <Button fx:id="btnInstallWinget" styleClass="btn-primary" onAction="#onInstallWinget" visible="false" managed="false"/>
+                </HBox>
+                <Label fx:id="lblWingetDesc" styleClass="muted-label" wrapText="true"/>
+            </VBox>
+
+            <!-- Chocolatey -->
+            <VBox styleClass="card" spacing="12">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="C" styleClass="source-brand-icon"/>
+                    <Label fx:id="lblChocoName" styleClass="card-section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <ProgressIndicator fx:id="spinChoco" prefWidth="22" prefHeight="22" visible="false" managed="false"/>
+                    <Label fx:id="lblChocoStatus"/>
+                    <Button fx:id="btnInstallChoco" styleClass="btn-primary" onAction="#onInstallChoco" visible="false" managed="false"/>
+                </HBox>
+                <Label fx:id="lblChocoDesc" styleClass="muted-label" wrapText="true"/>
+            </VBox>
+
+            <!-- Scoop -->
+            <VBox styleClass="card" spacing="12">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="S" styleClass="source-brand-icon"/>
+                    <Label fx:id="lblScoopName" styleClass="card-section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <ProgressIndicator fx:id="spinScoop" prefWidth="22" prefHeight="22" visible="false" managed="false"/>
+                    <Label fx:id="lblScoopStatus"/>
+                    <Button fx:id="btnInstallScoop" styleClass="btn-primary" onAction="#onInstallScoop" visible="false" managed="false"/>
+                </HBox>
+                <Label fx:id="lblScoopDesc" styleClass="muted-label" wrapText="true"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+</VBox>
+

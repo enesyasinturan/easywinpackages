@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.softeyt.easywinpackages.view.updates.UpdatesController"
+      VBox.vgrow="ALWAYS">
+
+    <VBox styleClass="screen-header">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="3" HBox.hgrow="ALWAYS">
+                <Label fx:id="lblTitle"    styleClass="screen-title"/>
+                <Label fx:id="lblSubtitle" styleClass="screen-subtitle"/>
+            </VBox>
+            <Button fx:id="btnRefresh"     styleClass="btn-secondary" onAction="#onRefresh"/>
+            <Button fx:id="btnUpdateAll"   styleClass="btn-primary"   onAction="#onUpdateAll"/>
+        </HBox>
+    </VBox>
+
+    <VBox style="-fx-padding: 10 28 10 28;" spacing="6">
+        <ProgressBar fx:id="progressBar" maxWidth="Infinity" visible="false" managed="false"/>
+        <Label fx:id="lblStatus" styleClass="muted-label"/>
+    </VBox>
+
+    <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 0 28 24 28;">
+        <TableView fx:id="tblUpdates" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colSelect"  prefWidth="50"/>
+                <TableColumn fx:id="colName"    prefWidth="220"/>
+                <TableColumn fx:id="colCurrent" prefWidth="130"/>
+                <TableColumn fx:id="colNew"     prefWidth="130"/>
+                <TableColumn fx:id="colSource"  prefWidth="100"/>
+                <TableColumn fx:id="colAction"  prefWidth="110"/>
+            </columns>
+            <placeholder><Label fx:id="lblNoUpdates" styleClass="muted-label"/></placeholder>
+        </TableView>
+    </VBox>
+</VBox>
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.softeyt.easywinpackages.view.bundle.BundleController"
+      VBox.vgrow="ALWAYS">
+
+    <VBox styleClass="screen-header">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="3" HBox.hgrow="ALWAYS">
+                <Label fx:id="lblTitle"    styleClass="screen-title"/>
+                <Label fx:id="lblSubtitle" styleClass="screen-subtitle"/>
+            </VBox>
+            <Button fx:id="btnImport"     styleClass="btn-secondary" onAction="#onImport"/>
+            <Button fx:id="btnExport"     styleClass="btn-secondary" onAction="#onExport"/>
+            <Button fx:id="btnInstallAll" styleClass="btn-primary"   onAction="#onInstallAll"/>
+        </HBox>
+    </VBox>
+
+    <VBox style="-fx-padding: 12 28 8 28;" spacing="6">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <TextField fx:id="txtBundleName" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <ProgressBar fx:id="progressBar" maxWidth="Infinity" visible="false" managed="false"/>
+        <Label fx:id="lblStatus" styleClass="muted-label"/>
+    </VBox>
+
+    <!-- Add entry row -->
+    <HBox style="-fx-padding: 0 28 10 28;" spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="txtAddId"      prefWidth="180"/>
+        <TextField fx:id="txtAddName"    prefWidth="150"/>
+        <TextField fx:id="txtAddVersion" prefWidth="110"/>
+        <ComboBox  fx:id="cmbAddSource"  prefWidth="165"/>
+        <Button    fx:id="btnAddEntry"   styleClass="btn-secondary" onAction="#onAddEntry"/>
+    </HBox>
+
+    <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 0 28 24 28;">
+        <TableView fx:id="tblEntries" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId"      prefWidth="180"/>
+                <TableColumn fx:id="colName"    prefWidth="170"/>
+                <TableColumn fx:id="colVersion" prefWidth="110"/>
+                <TableColumn fx:id="colSource"  prefWidth="110"/>
+                <TableColumn fx:id="colRemove"  prefWidth="90"/>
+            </columns>
+            <placeholder><Label fx:id="lblEmpty" styleClass="muted-label"/></placeholder>
+        </TableView>
+    </VBox>
+</VBox>
+
